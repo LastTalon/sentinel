@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Check Linting
+        run: npm run lint
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.3.0
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run publish
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build.rbxl
+
+  testing:
+    name: Testing
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+
+      - name: Install Aftman
+        uses: ok-nick/setup-aftman@v0.3.0
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Roblox
+        uses: OrbitalOwen/roblox-win-installer-action@1.1
+        with:
+          cookie: ${{ secrets.ROBLOSECURITY || '_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_F8C406357CC93CBD5F7B2B81EC4FED747587DE6AE2F0511E1648BA5D18A1622CD19F05EA832860F27C274D1CC4FB94E55DF9B36687E619CEA3E38118935CABB4BB2462E50292197F5DEBFCB574997B7ACBA05415468052C5A7230366C7D63034B35E903E0991E1F89A41FF0B8E7824DD80B89DF3827CCBB41FF13EA2ED03B8ECC66A3B9080DA78683E292ACA670CCFA3D11DF2ACBE06E590FECD0AEB4B3649E1CA4D2A765EFF2D625C8E430DCCE6E09802D3F7872142109AD814C9D7AB0C817C1518EAB802C3271C7FB1FFDC69AA7C4D71C57548D1502499258F6AF20CE97EBE53B83F690E4FFA7ED11DB61650BE12C1B99E0DE480D9BB9FED253D88990B25EB662EA767931D6879FB55F6EB1990BCAB367C605B898242C695377BDAF199003C4618E965EFBB02B06813D6285BE347F43AD7986B59E9551971D5AC5C8E302A031336243CB57C68257E6EDCE10E90C76295E007C0' }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set RBXID
+        run: REG ADD HKCU\Software\RobloxStudioBrowser\roblox.com /t REG_SZ /v .RBXID /d "${{ secrets.RBXID || '_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlZjg1ZTZkOC0xMjgyLTQ1NTItOTk2MC1kMjI5Y2U3ZjZmMjYiLCJzdWIiOjY5ODgyODYyM30.iRL7fqLatnRkoKnPSiWCwHDQDhQtYSXkIbz3yietDCg' }}"
+
+      - name: Run Tests
+        run: npm run test
