@@ -18,7 +18,7 @@
 		"typeRoots": ["node_modules/@rbxts"],
 
 		// configurable
-		"rootDir": "src",
+		"rootDirs": ["src", "tests"],
 		"outDir": "out",
 		"baseUrl": "src",
 		"incremental": true,

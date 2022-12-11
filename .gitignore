@@ -1,3 +1,10 @@
+# Roblox builds and artifacts
+*.rbxl
+*.rbxlx
+*.rbxl.lock
+*.rbxlx.lock
+
+# Roblox TS builds, artifacts, and packages
 /node_modules
 /out
 /include

@@ -1,5 +1,5 @@
 {
-	"name": "Sentinel",
+	"name": "Sentinel Full Build",
 	"globIgnorePaths": ["**/package.json", "**/tsconfig.json"],
 	"tree": {
 		"$className": "DataModel",
@@ -22,6 +22,9 @@
 			},
 			"sentinel": {
 				"$path": "out/src/shared"
+			},
+			"tests": {
+				"$path": "out/tests"
 			}
 		},
 		"StarterPlayer": {

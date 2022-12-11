@@ -1,25 +1,51 @@
 {
-  "name": "sentinel",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "rbxtsc",
-    "watch": "rbxtsc -w"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@rbxts/compiler-types": "^2.0.4-types.1",
-    "@rbxts/types": "^1.0.651",
-    "@typescript-eslint/eslint-plugin": "^5.46.0",
-    "@typescript-eslint/parser": "^5.46.0",
-    "eslint": "^8.29.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-roblox-ts": "^0.0.35",
-    "prettier": "^2.8.1",
-    "typescript": "^4.9.4"
-  }
+	"name": "sentinel",
+	"version": "0.1.0",
+	"description": "",
+	"private": true,
+	"scripts": {
+		"build": "rbxtsc --rojo build.project.json",
+		"build:test": "rbxtsc --type game --rojo build.project.json",
+		"watch": "rbxtsc -w --rojo build.project.json",
+		"watch:test": "rbxtsc -w --type game --rojo build.project.json",
+		"rojo": "npm run build:test && concurrently --kill-others npm:watch:test npm:rojo:serve",
+		"rojo:serve": "rojo serve test.project.json",
+		"rojo:build": "rojo build --output build.rbxl test.project.json",
+		"rojo:publish": "rojo build --output build.rbxl default.project.json",
+		"test": "npm run test:build && npm run test:run",
+		"test:run": "run-in-roblox --place build.rbxl --script out/tests/runners/run.server.lua",
+		"test:build": "npm run build:test && npm run rojo:build",
+		"lint": "eslint . --max-warnings 0",
+		"publish": "npm run build && npm run rojo:publish",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"roblox-ts",
+		"roblox",
+		"typescript"
+	],
+	"repository": "github:lasttalon/sentinel",
+	"homepage": "https://lasttalon.github.io/sentinel/",
+	"bugs": "https://github.com/LastTalon/sentinel/issues",
+	"author": "Lucas Gangstad",
+	"license": "MIT",
+	"main": "out/src/init.lua",
+	"files": [
+		"out/src",
+		"!**/*.tsbuildinfo"
+	],
+	"devDependencies": {
+		"@rbxts/compiler-types": "^2.0.4-types.1",
+		"@rbxts/testez": "^0.4.2-ts.0",
+		"@rbxts/types": "^1.0.651",
+		"@typescript-eslint/eslint-plugin": "^5.46.0",
+		"@typescript-eslint/parser": "^5.46.0",
+		"concurrently": "^7.6.0",
+		"eslint": "^8.29.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-roblox-ts": "^0.0.35",
+		"prettier": "^2.8.1",
+		"typescript": "^4.9.4"
+	}
 }
