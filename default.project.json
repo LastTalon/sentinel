@@ -35,8 +35,15 @@
 		},
 		"Workspace": {
 			"$className": "Workspace",
+			"$ignoreUnknownInstances": true,
 			"$properties": {
 				"FilteringEnabled": true
+			},
+			"Level": {
+				"$path": "assets/level.rbxm"
+			},
+			"Terrain": {
+				"$path": "assets/terrain.rbxm"
 			}
 		},
 		"HttpService": {
