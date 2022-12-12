@@ -34,6 +34,14 @@
 		"out/src",
 		"!**/*.tsbuildinfo"
 	],
+	"dependencies": {
+		"@rbxts/matter": "^0.6.2-ts.3",
+		"@rbxts/plasma": "^0.4.1-ts.0",
+		"@rbxts/rewire": "^0.3.0",
+		"@rbxts/roact": "^1.4.4-ts.0",
+		"@rbxts/roact-rodux": "^0.2.2-ts.8",
+		"@rbxts/rodux": "^3.0.0-ts.3"
+	},
 	"devDependencies": {
 		"@rbxts/compiler-types": "^2.0.4-types.1",
 		"@rbxts/testez": "^0.4.2-ts.0",
