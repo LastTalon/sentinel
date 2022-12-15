@@ -1,5 +1,14 @@
 {
 	"ReplicatedStorage": {
+		"sentinel": {},
 		"tests": {}
+	},
+	"ServerScriptService": {
+		"sentinel": {}
+	},
+	"StarterPlayer": {
+		"StarterPlayerScripts": {
+			"sentinel": {}
+		}
 	}
 }

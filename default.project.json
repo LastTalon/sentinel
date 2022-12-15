@@ -1,6 +1,6 @@
 {
 	"name": "Sentinel",
-	"globIgnorePaths": ["**/package.json", "**/tsconfig.json"],
+	"globIgnorePaths": ["**/package.json", "**/tsconfig.json", "**/*.spec.lua"],
 	"tree": {
 		"$className": "DataModel",
 		"ServerScriptService": {
