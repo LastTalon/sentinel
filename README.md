@@ -10,14 +10,15 @@
 
 **Sentinel** is a _[Roblox]_ game written using [roblox-ts].
 
-Sentinel is a hero-based, wave horde survival game. More information to come.
+Sentinel is a cooperative, hero-based, wave-based horde survival game. More
+information to come.
 
 [roblox]: https://www.roblox.com/
 
 ## Building
 
 Sentinel is built by compiling it with [roblox-ts]. Additionally it will need
-all of its depencencies installed from `package.json`.
+all of its dependencies installed from `package.json`.
 
 You can then sync or build the project with [Rojo]. Sentinel contains several
 project files with different builds of the project. The `default.project.json`
