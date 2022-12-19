@@ -2,8 +2,8 @@
 import { CollectionService } from "@rbxts/services";
 import { AnyEntity, component, Entity, World } from "@rbxts/matter";
 import { ComponentBundle } from "@rbxts/matter/lib/component";
+import { Transform, Model } from "shared/components/archetypes";
 import { ComponentConstructor, start, stop } from "./tags";
-import { Transform, Model } from "./components/archetypes";
 
 interface MockWorld extends World {
 	entities: ComponentBundle[];
