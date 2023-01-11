@@ -1,30 +1,9 @@
 /// <reference types="@rbxts/testez/globals" />
 import { CollectionService } from "@rbxts/services";
-import { AnyEntity, component, Entity, World } from "@rbxts/matter";
-import { ComponentBundle } from "@rbxts/matter/lib/component";
+import { component } from "@rbxts/matter";
 import { Transform, Model } from "shared/components/archetypes";
+import { MockWorld, mockWorld } from "./mockWorld.dev";
 import { ComponentConstructor, start, stop } from "./tags";
-
-interface MockWorld extends World {
-	entities: ComponentBundle[];
-}
-
-function mockWorld(): MockWorld {
-	const world = new World() as unknown as MockWorld;
-	world.entities = new Array<ComponentBundle>();
-
-	world.spawn = (<T extends ComponentBundle>(_: never, ...components: T): Entity<T> => {
-		const id = world.entities.size();
-		world.entities.push(components);
-		return id as Entity<T>;
-	}) as <T extends ComponentBundle>(...components: T) => Entity<T>;
-
-	world.despawn = ((_: never, id: AnyEntity): void => {
-		world.entities.remove(id);
-	}) as (id: AnyEntity) => void;
-
-	return world;
-}
 
 const TestComponent1 = component("Test1", {
 	message: "Hello",
@@ -180,7 +159,7 @@ export = (): void => {
 
 			const entity1 = world.entities[0];
 			let found = false;
-			for (const component of entity1) {
+			for (const component of entity1.insert) {
 				if ((component as { message?: string }).message === "Hello") {
 					found = true;
 					break;
@@ -197,7 +176,7 @@ export = (): void => {
 
 			const entity2 = world.entities[0];
 			found = false;
-			for (const component of entity2) {
+			for (const component of entity2.insert) {
 				if ((component as { value?: boolean }).value === false) {
 					found = true;
 					break;
@@ -214,11 +193,12 @@ export = (): void => {
 			model.Parent = script;
 			expect(world.entities[0]).to.be.ok();
 
-			const entity1: unknown[] = world.entities[0];
+			const entity1 = world.entities[0];
 			let foundModel = false;
 			let foundTransform = false;
-			for (const component of entity1) {
+			for (const inserted of entity1.insert) {
 				if (foundModel && foundTransform) break;
+				const component: unknown = inserted;
 				if ((component as Model).model) {
 					expect((component as Model).model).to.equal(model);
 					foundModel = true;
