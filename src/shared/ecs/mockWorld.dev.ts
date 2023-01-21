@@ -1,5 +1,5 @@
 import { AnyEntity, Entity, World } from "@rbxts/matter";
-import { ComponentBundle, DynamicBundle } from "@rbxts/matter/lib/component";
+import { ComponentBundle, DynamicBundle, InferComponents } from "@rbxts/matter/lib/component";
 
 export interface EntityEntry {
 	insert: ComponentBundle;
@@ -36,7 +36,7 @@ export function mockWorld(): MockWorld {
 		const entity = world.entities[id];
 		components.move(0, components.size(), entity.remove.size(), entity.remove);
 		return components;
-	}) as <T extends DynamicBundle>(id: AnyEntity, ...components: T) => T;
+	}) as <T extends DynamicBundle>(id: AnyEntity, ...components: T) => LuaTuple<InferComponents<T>>;
 
 	return world;
 }
