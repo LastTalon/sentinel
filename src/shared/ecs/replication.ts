@@ -4,7 +4,7 @@ import { waitForEvent } from "shared/remotes";
 import { State } from "./state";
 
 type ComponentNames = keyof typeof Components;
-type ComponentConstructors = typeof Components[ComponentNames];
+type ComponentConstructors = (typeof Components)[ComponentNames];
 type Components = ReturnType<ComponentConstructors>;
 type Archetypes = Parameters<ComponentConstructors>[0];
 
