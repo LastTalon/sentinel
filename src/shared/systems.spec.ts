@@ -1,4 +1,5 @@
 /// <reference types="@rbxts/testez/globals" />
+import { ReplicatedStorage } from "@rbxts/services";
 import { AnySystem, Debugger, Loop } from "@rbxts/matter";
 import Plasma from "@rbxts/plasma";
 import { Host } from "shared/hosts";
@@ -20,8 +21,16 @@ function mockLoop(): MockLoop {
 }
 
 export = (): void => {
-	const debug = new Debugger(Plasma);
+	let debug: Debugger;
 	let loop: MockLoop;
+
+	beforeAll(() => {
+		debug = new Debugger(Plasma);
+	});
+
+	afterAll(() => {
+		ReplicatedStorage.FindFirstChild("MatterDebuggerRemote")?.Destroy();
+	});
 
 	describe("start", () => {
 		beforeEach(() => {

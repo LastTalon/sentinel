@@ -85,4 +85,5 @@ export function stop(): void {
 	stopTags();
 	stopReplication();
 	stopSystems();
+	ReplicatedStorage.FindFirstChild("MatterDebuggerRemote")?.Destroy();
 }
