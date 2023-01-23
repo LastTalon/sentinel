@@ -1,7 +1,7 @@
 /// <reference types="@rbxts/testez/globals" />
+import { Host } from "shared/hosts";
 import {
 	clientIdAttribute,
-	Environment,
 	getIdAttribute,
 	serverIdAttribute,
 	setEnvironment,
@@ -29,17 +29,19 @@ export = (): void => {
 
 	describe("setEnvironment", () => {
 		it("should set the ID attribute to the server attribute", () => {
-			setEnvironment(Environment.Server);
+			setEnvironment(Host.Server);
 			expect(getIdAttribute()).to.equal(serverIdAttribute);
 		});
 
 		it("should set the ID attribute to the client attribute", () => {
-			setEnvironment(Environment.Client);
+			setEnvironment(Host.Client);
 			expect(getIdAttribute()).to.equal(clientIdAttribute);
 		});
 
 		it("should set the ID attribute to the unknown attribute", () => {
-			setEnvironment(Environment.Unknown);
+			setEnvironment(Host.None);
+			expect(getIdAttribute()).to.equal(unknownIdAttribute);
+			setEnvironment(Host.All);
 			expect(getIdAttribute()).to.equal(unknownIdAttribute);
 		});
 	});
