@@ -1,6 +1,8 @@
+import { Host } from "shared/hosts";
+
 /**
  * A string that represents the default ID attribute when the environment is
- * unknown.
+ * not client or server.
  */
 export const unknownIdAttribute = "unknownEntityId";
 
@@ -27,25 +29,16 @@ export function getIdAttribute(): string {
 }
 
 /**
- * The possible environments entity id attributes can be set in.
- */
-export enum Environment {
-	Unknown,
-	Server,
-	Client,
-}
-
-/**
  * Sets the `idAttribute` variable based on the provided environment.
  *
  * @param environment - The environment to set the ID attribute for
  */
-export function setEnvironment(environment: Environment): void {
+export function setEnvironment(environment: Host): void {
 	switch (environment) {
-		case Environment.Server:
+		case Host.Server:
 			idAttribute = serverIdAttribute;
 			break;
-		case Environment.Client:
+		case Host.Client:
 			idAttribute = clientIdAttribute;
 			break;
 		default:
