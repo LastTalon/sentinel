@@ -45,6 +45,11 @@ export function start<T extends unknown[]>(container: Host, loop: Loop<T>, debug
 	const systemsByModule: Map<ModuleScript, AnySystem> = new Map();
 
 	function load(module: ModuleScript, context: Context): void {
+		if (
+			module.Name.match("%.spec$")[0] !== undefined ||
+			module.Name.match("%.dev$")[0] !== undefined
+		)
+			return;
 		const original = context.originalModule;
 		const previous = systemsByModule.get(original);
 		const [ok, required] = pcall(require, module);
