@@ -7,6 +7,12 @@ export type ComponentConstructor<T extends object> = () => Component<T>;
 
 const connections: RBXScriptConnection[] = [];
 
+/**
+ * Starts spawning bound tags.
+ *
+ * @param world - The world to spawn components in
+ * @param bound - A map of bound tags
+ */
 export function start(
 	world: World,
 	bound: ReadonlyMap<string, ComponentConstructor<object>>,
@@ -64,6 +70,9 @@ export function start(
 	}
 }
 
+/**
+ * Stops spawning bound tags.
+ */
 export function stop(): void {
 	for (const connection of connections) {
 		connection.Disconnect();

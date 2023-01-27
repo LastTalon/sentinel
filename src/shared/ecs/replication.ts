@@ -14,6 +14,12 @@ const DEBUG_MODIFY = "Modify %ds%d adding %s, removing %s";
 
 let connection: RBXScriptConnection | undefined;
 
+/**
+ * Starts the replication receiver.
+ *
+ * @param world - The world to replicate components in
+ * @param state - The global state for the ECS
+ */
 export function start(world: World, state: State): void {
 	if (connection) return;
 
@@ -90,6 +96,9 @@ export function start(world: World, state: State): void {
 	);
 }
 
+/**
+ * Stops receiving replication.
+ */
 export function stop(): void {
 	if (!connection) return;
 	connection.Disconnect();

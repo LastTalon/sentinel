@@ -24,6 +24,14 @@ let connections:
 	  }
 	| undefined;
 
+/**
+ * Starts the ECS.
+ *
+ * @param host - The host the ECS is running on
+ * @return The world and global ECS state of the ECS
+ *
+ * @throws "ECS already running."
+ */
 export function start(host: Host): [World, State] {
 	if (connections) throw "ECS already running.";
 
@@ -76,6 +84,9 @@ export function start(host: Host): [World, State] {
 	return [world, state];
 }
 
+/**
+ * Stops the ECS.
+ */
 export function stop(): void {
 	if (!connections) return;
 	for (const [_, connection] of pairs(connections)) {
