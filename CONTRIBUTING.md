@@ -9,10 +9,10 @@ to be a project everyone feels they can use and be a part of.
 
 Sentinel and those participating in any of its spaces are governed by its [code
 of conduct]. By participating you are also expected to uphold this code. Report
-any unacceptable behavior to [last_talon@new.rr.com].
+any unacceptable behavior to [lucas@lasttalon.dev].
 
 [code of conduct]: CODE_OF_CONDUCT.md
-[last_talon@new.rr.com]: mailto:last_talon@new.rr.com
+[lucas@lasttalon.dev]: mailto:lucas@lasttalon.dev
 
 ## Reporting Bugs
 
