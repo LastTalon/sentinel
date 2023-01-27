@@ -23,6 +23,8 @@ let hotReloader: HotReloader | undefined;
  * @param debug - The debugger to load systems into
  *
  * @throws "[container] container not found"
+ * This is thrown when a container necessary for the provided host doesn't
+ * exist.
  */
 export function start<T extends unknown[]>(container: Host, loop: Loop<T>, debug: Debugger): void {
 	if (!firstRunSystems) return;

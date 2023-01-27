@@ -31,6 +31,7 @@ let connections:
  * @return The world and global ECS state of the ECS
  *
  * @throws "ECS already running."
+ * This is thrown when the ECS has already been started.
  */
 export function start(host: Host): [World, State] {
 	if (connections) throw "ECS already running.";

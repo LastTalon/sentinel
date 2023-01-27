@@ -38,7 +38,12 @@ export function getEvent(name: string): RemoteEvent {
  * @returns The remote event associated with the name
  *
  * @throws "Event '[name]' was requested, but no such remote event exists."
+ * This is thrown when an event name is provided that doesn't exist. If this is
+ * not desired, see {@link getEvent} and {@link waitForEvent} instead.
+ *
  * @throws "Event '[name]' was requested, but was not a remote event."
+ * This is thrown when an event name provided exists, but is not an event.
+ * Usually this is because it's a function instead.
  */
 export function getEventOrFail(name: string): RemoteEvent {
 	let event = events.get(name);
@@ -64,6 +69,8 @@ export function getEventOrFail(name: string): RemoteEvent {
  * @returns The remote event associated with the name
  *
  * @throws "Event '[name]' was requested, but was not a remote event."
+ * This is thrown when an event name provided exists, but is not an event.
+ * Usually this is because it's a function instead.
  */
 export function waitForEvent(name: string): RemoteEvent;
 export function waitForEvent(name: string, timeout: number): RemoteEvent | undefined;
@@ -124,7 +131,12 @@ export function getFunction(name: string): RemoteFunction {
  * @returns The remote function associated with the name
  *
  * @throws "Function '[name]' was requested, but no such remote function exists."
+ * This is thrown when a function name is provided that doesn't exist. If this
+ * is not desired, see {@link getFunction} and {@link waitForFunction} instead.
+ *
  * @throws "Function '[name]' was requested, but was not a remote function."
+ * This is thrown when a function name provided exists, but is not a function.
+ * Usually this is because it's an event instead.
  */
 export function getFunctionOrFail(name: string): RemoteFunction {
 	let fn = functions.get(name);
@@ -150,6 +162,8 @@ export function getFunctionOrFail(name: string): RemoteFunction {
  * @returns The remote function associated with the name
  *
  * @throws "Function '[name]' was requested, but was not a remote function."
+ * This is thrown when a function name provided exists, but is not a function.
+ * Usually this is because it's an event instead.
  */
 export function waitForFunction(name: string): RemoteFunction;
 export function waitForFunction(name: string, timeout: number): RemoteFunction | undefined;
