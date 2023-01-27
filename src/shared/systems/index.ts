@@ -7,7 +7,9 @@ const ERROR_CONTAINER = "%s container not found";
 
 const shared = script.FindFirstChild("shared");
 const client = script.FindFirstChild("client");
-const server = ServerScriptService.FindFirstChild("sentinel")?.FindFirstChild("systems");
+const server = ServerScriptService.FindFirstChild("sentinel")
+	?.FindFirstChild("systems")
+	?.FindFirstChild("server");
 
 let firstRunSystems: AnySystem[] | undefined = [];
 let hotReloader: HotReloader | undefined;
