@@ -12,6 +12,20 @@ const server = ServerScriptService.FindFirstChild("sentinel")?.FindFirstChild("s
 let firstRunSystems: AnySystem[] | undefined = [];
 let hotReloader: HotReloader | undefined;
 
+/**
+ * Starts the system loader.
+ *
+ * Loads systems for the specified container into the provided loop and
+ * debugger. Systems are hot reloaded as they are changed.
+ *
+ * @param container - The container to load
+ * @param loop - The ECS loop to load systems into
+ * @param debug - The debugger to load systems into
+ *
+ * @throws "[container] container not found"
+ * This is thrown when a container necessary for the provided host doesn't
+ * exist.
+ */
 export function start<T extends unknown[]>(container: Host, loop: Loop<T>, debug: Debugger): void {
 	if (!firstRunSystems) return;
 
@@ -76,6 +90,9 @@ export function start<T extends unknown[]>(container: Host, loop: Loop<T>, debug
 	firstRunSystems = undefined;
 }
 
+/**
+ * Stops loading systems.
+ */
 export function stop(): void {
 	if (firstRunSystems) return;
 	firstRunSystems = [];
