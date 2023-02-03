@@ -6,7 +6,7 @@ import { State } from "./state";
 type ComponentNames = keyof typeof Components;
 type ComponentConstructors = (typeof Components)[ComponentNames];
 type Components = ReturnType<ComponentConstructors>;
-type Archetypes = Parameters<ComponentConstructors>[0];
+type ComponentTypes = Parameters<ComponentConstructors>[0];
 
 const DEBUG_SPAWN = "Spawn %ds%d with %s";
 const DEBUG_DESPAWN = "Despawn %ds%d";
@@ -33,7 +33,7 @@ export function start(world: World, state: State): void {
 	const serverToClientEntity = new Map<string, AnyEntity>();
 
 	connection = replicationEvent.OnClientEvent.Connect(
-		(entities: Map<string, Map<ComponentNames, { data?: Archetypes }>>) => {
+		(entities: Map<string, Map<ComponentNames, { data?: ComponentTypes }>>) => {
 			for (const [serverId, componentMap] of entities) {
 				const clientId = serverToClientEntity.get(serverId);
 
@@ -62,7 +62,7 @@ export function start(world: World, state: State): void {
 							// it was created with, but the type checker can't verify this for
 							// us. To solve this the type must somehow be associated with the
 							// name in the type system. For now, this cast works fine.
-							component(container.data as UnionToIntersection<Archetypes>),
+							component(container.data as UnionToIntersection<ComponentTypes>),
 						);
 						insertNames.push(name);
 					} else {

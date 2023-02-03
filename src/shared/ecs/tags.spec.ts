@@ -1,7 +1,7 @@
 /// <reference types="@rbxts/testez/globals" />
 import { CollectionService } from "@rbxts/services";
 import { component } from "@rbxts/matter";
-import { Transform, Model } from "shared/components/archetypes";
+import { Transform, Model } from "shared/components/types";
 import { MockWorld, mockWorld } from "./mockWorld.dev";
 import { ComponentConstructor, start, stop } from "./tags";
 

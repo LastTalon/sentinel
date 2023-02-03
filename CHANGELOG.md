@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
   - The server uses `serverEntityId`
   - The client uses `clientEntityId`
   - Otherwise `unknownEntityId` is used
-- A component system along with component archetypes
+- A component system along with component types
 - Spawning for tagged components based on a set of tags bound to their
   associated components
 - The ECS global state
