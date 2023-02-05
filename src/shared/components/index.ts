@@ -1,16 +1,16 @@
 import { component } from "@rbxts/matter";
-import { Model as ModelArchetype, Transform as TransformArchetype } from "./archetypes";
+import { Model as ModelComponent, Transform as TransformComponent } from "./types";
 import { transform } from "./defaults";
 
 /**
- * The {@link ModelArchetype | Model} component constructor.
+ * The {@link ModelComponent | Model} component constructor.
  */
-export const Model = component<ModelArchetype>("Model");
+export const Model = component<ModelComponent>("Model");
 
 /**
- * The {@link TransformArchetype | Transform} component constructor.
+ * The {@link TransformComponent | Transform} component constructor.
  */
-export const Transform = component<TransformArchetype>("Transform", transform);
+export const Transform = component<TransformComponent>("Transform", transform);
 
 /**
  * This is a test component constructor.

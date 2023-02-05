@@ -1,4 +1,4 @@
-import { Transform } from "./archetypes";
+import { Transform } from "./types";
 
 /**
  * The default value created when no data is provided to a {@link Transform}
