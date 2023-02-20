@@ -29,3 +29,6 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
   - Systems will automatically load in their correct environments
   - They will hot reload in a live synced game as they're updated
 - Initialization for the matter ECS
+- Core ECS systems
+  - `updateIdAttribute`
+  - `removeMissingModels`
