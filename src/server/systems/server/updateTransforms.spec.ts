@@ -6,8 +6,6 @@ import removeMissingModels from "./removeMissingModels";
 import updateTransforms from "./updateTransforms";
 
 export = (): void => {
-	FOCUS();
-
 	describe("system", () => {
 		const event = new Instance("BindableEvent");
 		let instance: Model;
