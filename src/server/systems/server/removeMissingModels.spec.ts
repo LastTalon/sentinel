@@ -7,6 +7,7 @@ import removeMissingModels from "./removeMissingModels";
 export = (): void => {
 	describe("system", () => {
 		const event = new Instance("BindableEvent");
+		let instance: PVInstance;
 		let world: World;
 		let loop: Loop<[World]>;
 		let connections: {
@@ -14,6 +15,8 @@ export = (): void => {
 		};
 
 		beforeEach(() => {
+			instance = new Instance("Model");
+			instance.Parent = Workspace;
 			world = new World();
 			loop = new Loop(world);
 			loop.scheduleSystem(removeMissingModels);
@@ -23,14 +26,13 @@ export = (): void => {
 		});
 
 		afterEach(() => {
+			instance.Destroy();
 			for (const [_, connection] of pairs(connections)) {
 				connection.Disconnect();
 			}
 		});
 
 		it("should remove a Model from an entity that is destroyed", () => {
-			const instance = new Instance("Model");
-			instance.Parent = Workspace;
 			const entity = world.spawn(
 				Model({
 					model: instance,
@@ -44,8 +46,6 @@ export = (): void => {
 		});
 
 		it("should destroy instances when Models are removed", () => {
-			const instance = new Instance("Model");
-			instance.Parent = Workspace;
 			const entity = world.spawn(
 				Model({
 					model: instance,
@@ -56,13 +56,9 @@ export = (): void => {
 			world.remove(entity, Model);
 			event.Fire();
 			expect(instance.Parent).never.to.be.ok();
-			// Destroy the instance just in case.
-			instance.Destroy();
 		});
 
 		it("should destroy instances when entities with Models are despawned", () => {
-			const instance = new Instance("Model");
-			instance.Parent = Workspace;
 			const entity = world.spawn(
 				Model({
 					model: instance,
@@ -73,8 +69,6 @@ export = (): void => {
 			world.despawn(entity);
 			event.Fire();
 			expect(instance.Parent).never.to.be.ok();
-			// Destroy the instance just in case.
-			instance.Destroy();
 		});
 	});
 };
