@@ -32,3 +32,4 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 - Core ECS systems
   - `updateIdAttribute`
   - `removeMissingModels`
+  - `updateTransforms`
