@@ -6,7 +6,7 @@ import { getIdAttribute, setEnvironment } from "shared/idAttribute";
 import updateIdAttribute from "./updateIdAttribute";
 
 export = (): void => {
-	describe("updateIdAttribute", () => {
+	describe("system", () => {
 		const event = new Instance("BindableEvent");
 		let world: World;
 		let loop: Loop<[World]>;

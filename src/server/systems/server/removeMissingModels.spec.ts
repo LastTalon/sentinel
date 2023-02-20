@@ -5,7 +5,7 @@ import { Model } from "shared/components";
 import removeMissingModels from "./removeMissingModels";
 
 export = (): void => {
-	describe("removeMissingModels", () => {
+	describe("system", () => {
 		const event = new Instance("BindableEvent");
 		let world: World;
 		let loop: Loop<[World]>;
