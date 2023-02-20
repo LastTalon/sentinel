@@ -9,8 +9,6 @@ import { Model } from "shared/components";
  *
  * If a model is removed from the world, this system will remove the
  * corresponding model from the game.
- *
- * @param world - The {@link World} the system operates on
  */
 function removeMissingModels(world: World): void {
 	for (const [id, model] of world.query(Model)) {
