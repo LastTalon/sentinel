@@ -69,8 +69,7 @@ pull request.
 6. Make any necessary changes (be sure to keep `CHANGELOG.md` accurate)
 7. Rebase and merge the pull request
 8. Push a new version tag
-9. Publish the new version using `npm publish`
-10. Write GitHub release notes
+9. Write GitHub release notes
 
 [semver]: https://semver.org/
 [issue]: https://github.com/LastTalon/sentinel/issues
