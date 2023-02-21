@@ -33,3 +33,4 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
   - `updateIdAttribute`
   - `removeMissingModels`
   - `updateTransforms`
+  - `replication`
