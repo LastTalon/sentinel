@@ -1,21 +1,21 @@
-import { Players, ReplicatedStorage, RunService, UserInputService } from "@rbxts/services";
 import { AnyEntity, Debugger, Loop, World } from "@rbxts/matter";
 import Plasma from "@rbxts/plasma";
+import { Players, ReplicatedStorage, RunService, UserInputService } from "@rbxts/services";
 
 import { Model } from "shared/components";
 import { Host } from "shared/hosts";
 import { start as startSystems, stop as stopSystems } from "shared/systems";
-import { start as startTags, stop as stopTags } from "./tags";
+import { tags } from "./boundTags";
 import { start as startReplication, stop as stopReplication } from "./replication";
 import { State } from "./state";
-import { tags } from "./boundTags";
+import { start as startTags, stop as stopTags } from "./tags";
 
 const MAX_DISPLAY_ORDER = 2147483647;
 const GROUP_ID = 2880401;
 const DEBUG_RANK = 253;
 
 function authorize(player: Player): boolean {
-	return player.GetRankInGroup(GROUP_ID) >= DEBUG_RANK;
+	return RunService.IsStudio() || player.GetRankInGroup(GROUP_ID) >= DEBUG_RANK;
 }
 
 let connections:
