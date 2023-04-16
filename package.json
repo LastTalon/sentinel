@@ -35,7 +35,8 @@
 		"!**/*.tsbuildinfo"
 	],
 	"dependencies": {
-		"@rbxts/matter": "^0.6.2-ts.3",
+		"@rbxts/matter": "^0.6.2-ts.6",
+		"@rbxts/matter-hooks": "^0.1.1",
 		"@rbxts/plasma": "^0.4.1-ts.0",
 		"@rbxts/rewire": "^0.3.0",
 		"@rbxts/roact": "^1.4.4-ts.0",
