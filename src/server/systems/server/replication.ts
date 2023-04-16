@@ -5,7 +5,6 @@ import { getEvent } from "shared/remotes";
 
 type ComponentName = keyof typeof Components;
 type ComponentConstructor = (typeof Components)[ComponentName];
-type ComponentType = Parameters<ComponentConstructor>[0];
 
 const REPLICATED_COMPONENT_NAMES: readonly ComponentName[] = ["Model"];
 
@@ -21,13 +20,14 @@ getEvent("EcsReplication");
 function replication(world: World): void {
 	const replicationEvent = getEvent("EcsReplication");
 
-	let payload: Map<string, Map<ComponentName, { data?: ComponentType }>> | undefined;
+	let payload: Map<string, Map<ComponentName, { data?: Components.SentinelComponent }>> | undefined;
 	for (const [_, player] of useEvent(Players, "PlayerAdded")) {
 		if (!payload) {
 			payload = new Map();
 
 			for (const [id, entityData] of world) {
-				const entityPayload: Map<ComponentName, { data?: ComponentType }> = new Map();
+				const entityPayload: Map<ComponentName, { data?: Components.SentinelComponent }> =
+					new Map();
 				payload.set(tostring(id), entityPayload);
 
 				for (const [component, componentData] of entityData) {
@@ -44,7 +44,10 @@ function replication(world: World): void {
 		replicationEvent.FireClient(player, payload);
 	}
 
-	const changes: Map<string, Map<ComponentName, { data?: ComponentType }>> = new Map();
+	const changes: Map<
+		string,
+		Map<ComponentName, { data?: Components.SentinelComponent }>
+	> = new Map();
 	for (const component of replicatedComponents) {
 		// Here we are certain that the component has the name of one of our
 		// components since it came from our set.
