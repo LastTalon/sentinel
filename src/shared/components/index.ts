@@ -1,6 +1,9 @@
-import { component } from "@rbxts/matter";
-import { Model as ModelComponent, Transform as TransformComponent } from "./types";
+import { Component, component } from "@rbxts/matter";
 import { transform } from "./defaults";
+import type { Model as ModelComponent, Transform as TransformComponent } from "./types";
+
+export type SentinelComponentType = ModelComponent | TransformComponent;
+export type SentinelComponent = Component<SentinelComponentType>;
 
 /**
  * The {@link ModelComponent | Model} component constructor.
