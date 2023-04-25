@@ -1,6 +1,6 @@
 /// <reference types="@rbxts/testez/globals" />
 import { Loop, World } from "@rbxts/matter";
-import { Model } from "shared/components";
+import { Model } from "shared/ecs/components";
 import { Host } from "shared/hosts";
 import { getIdAttribute, setEnvironment } from "shared/idAttribute";
 import updateIdAttribute from "./updateIdAttribute";

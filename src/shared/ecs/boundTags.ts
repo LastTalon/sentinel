@@ -1,4 +1,4 @@
-import { Test } from "shared/components";
+import { Test } from "./components";
 
 /**
  * A map of tags to their bound components.

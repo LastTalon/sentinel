@@ -1,5 +1,5 @@
 import { World } from "@rbxts/matter";
-import { Model } from "shared/components";
+import { Model } from "shared/ecs/components";
 import { getIdAttribute } from "shared/idAttribute";
 
 /**

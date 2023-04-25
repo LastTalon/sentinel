@@ -1,5 +1,5 @@
 import { useEvent, World } from "@rbxts/matter";
-import { Model } from "shared/components";
+import { Model } from "shared/ecs/components";
 
 /**
  * A system that removes missing {@link Model | Models}.

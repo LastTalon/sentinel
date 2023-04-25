@@ -1,7 +1,7 @@
 /// <reference types="@rbxts/testez/globals" />
 import { Loop, World } from "@rbxts/matter";
 import { Workspace } from "@rbxts/services";
-import { Model, Transform } from "shared/components";
+import { Model, Transform } from "shared/ecs/components";
 import removeMissingModels from "./removeMissingModels";
 import updateTransforms from "./updateTransforms";
 

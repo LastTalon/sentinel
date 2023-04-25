@@ -1,7 +1,7 @@
-import { CollectionService } from "@rbxts/services";
 import { AnyEntity, Component, World } from "@rbxts/matter";
+import { CollectionService } from "@rbxts/services";
 import { getIdAttribute } from "shared/idAttribute";
-import { Model, Transform } from "shared/components";
+import { Model, Transform } from "./components";
 
 export type ComponentConstructor<T extends object> = () => Component<T>;
 
