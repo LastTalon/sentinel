@@ -1,6 +1,6 @@
 import { useEvent, World } from "@rbxts/matter";
 import { Players } from "@rbxts/services";
-import * as Components from "shared/components";
+import * as Components from "shared/ecs/components";
 import { getEvent } from "shared/remotes";
 
 type ComponentName = keyof typeof Components;

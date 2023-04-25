@@ -1,6 +1,6 @@
-import { ServerScriptService } from "@rbxts/services";
 import { AnySystem, Debugger, Loop } from "@rbxts/matter";
 import { Context, HotReloader } from "@rbxts/rewire";
+import { ServerScriptService } from "@rbxts/services";
 import { Host } from "shared/hosts";
 
 const ERROR_CONTAINER = "%s container not found";
@@ -8,6 +8,7 @@ const ERROR_CONTAINER = "%s container not found";
 const shared = script.FindFirstChild("shared");
 const client = script.FindFirstChild("client");
 const server = ServerScriptService.FindFirstChild("sentinel")
+	?.FindFirstChild("ecs")
 	?.FindFirstChild("systems")
 	?.FindFirstChild("server");
 

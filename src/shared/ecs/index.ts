@@ -2,12 +2,12 @@ import { AnyEntity, Debugger, Loop, World } from "@rbxts/matter";
 import Plasma from "@rbxts/plasma";
 import { Players, ReplicatedStorage, RunService, UserInputService } from "@rbxts/services";
 
-import { Model } from "shared/components";
 import { Host } from "shared/hosts";
-import { start as startSystems, stop as stopSystems } from "shared/systems";
 import { tags } from "./boundTags";
+import { Model } from "./components";
 import { start as startReplication, stop as stopReplication } from "./replication";
 import { State } from "./state";
+import { start as startSystems, stop as stopSystems } from "./systems";
 import { start as startTags, stop as stopTags } from "./tags";
 
 const MAX_DISPLAY_ORDER = 2147483647;

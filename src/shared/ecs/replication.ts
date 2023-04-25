@@ -1,6 +1,6 @@
 import { AnyEntity, World } from "@rbxts/matter";
-import * as Components from "shared/components";
 import { waitForEvent } from "shared/remotes";
+import * as Components from "./components";
 import { State } from "./state";
 
 type ComponentNames = keyof typeof Components;

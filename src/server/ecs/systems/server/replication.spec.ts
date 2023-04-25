@@ -1,7 +1,7 @@
 /// <reference types="@rbxts/testez/globals" />
 import { Loop, World } from "@rbxts/matter";
-import * as Components from "shared/components";
-import { Model } from "shared/components";
+import * as Components from "shared/ecs/components";
+import { Model } from "shared/ecs/components";
 import { getEvent } from "shared/remotes";
 import replication from "./replication";
 
