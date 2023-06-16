@@ -6,21 +6,14 @@
 	],
 	"rules": {
 		"prettier/prettier": "warn",
-		"ban-types": "error",
-		"explicit-function-return-type": "warn",
-		"explicit-module-boundary-types": "warn",
 		"no-array-constructor": "error",
 		"no-empty-function": "error",
-		"no-empty-interface": "error",
-		"no-namespace": "error",
-		"no-non-null-assertion": "warn",
 		"no-unused-vars": [
 			"warn",
 			{
 				"varsIgnorePattern": "^_",
 				"argsIgnorePattern": "^_"
 			}
-		],
-		"no-var-requires": "error"
+		]
 	}
 }
