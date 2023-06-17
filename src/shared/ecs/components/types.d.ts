@@ -32,3 +32,30 @@ export interface Health {
 	block: number;
 	evasion: number;
 }
+
+/**
+ * The Movement component.
+ *
+ * Contains information about where a character intends to move.
+ */
+export interface Movement {
+	maxSpeed: number;
+	maxAngularSpeed: number;
+	velocity: Vector2;
+	angularVelocity: number;
+}
+
+/**
+ * The GamePlacement component.
+ *
+ * Contains derived information about where something is located in the context
+ * of the game space.
+ *
+ * This is distinct from a Transform, because it does not necessarily correlate
+ * to world space, although it often will be translated to a Transform for
+ * placing it in the world.
+ */
+export interface GamePlacement {
+	position: Vector2;
+	orientation: number;
+}
