@@ -6,7 +6,7 @@ import type {
 	Transform as TransformComponent,
 } from "./types";
 
-export type SentinelComponentType = ModelComponent | TransformComponent;
+export type SentinelComponentType = ModelComponent | TransformComponent | HealthComponent;
 export type SentinelComponent = Component<SentinelComponentType>;
 
 /**
