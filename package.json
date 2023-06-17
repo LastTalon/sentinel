@@ -15,7 +15,7 @@
 		"test": "npm run test:build && npm run test:run",
 		"test:run": "run-in-roblox --place build.rbxl --script out/tests/runners/run.server.lua",
 		"test:build": "npm run build:test && npm run rojo:build",
-		"lint": "eslint . --max-warnings 0",
+		"lint": "eslint src tests --max-warnings 0",
 		"publish": "npm run build && npm run rojo:publish",
 		"prepublishOnly": "npm run build"
 	},

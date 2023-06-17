@@ -1,0 +1,19 @@
+{
+	"plugins": ["prettier"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended"
+	],
+	"rules": {
+		"prettier/prettier": "warn",
+		"no-array-constructor": "error",
+		"no-empty-function": "error",
+		"no-unused-vars": [
+			"warn",
+			{
+				"varsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_"
+			}
+		]
+	}
+}

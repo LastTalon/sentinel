@@ -1,4 +1,8 @@
-# Broadcast Intercepted: Development Live Streams
+---
+slug: broadcast-intercepted
+title: "Broadcast Intercepted: Development Live Streams"
+authors: lucas
+---
 
 Hello there, friend.
 
