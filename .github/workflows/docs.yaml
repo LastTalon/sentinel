@@ -23,6 +23,7 @@ jobs:
       - name: Generate Docs
         run: |
           cd docs
+          npm ci
           npm run build
 
       - name: Upload Build Artifact
