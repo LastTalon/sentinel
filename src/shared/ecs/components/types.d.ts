@@ -18,3 +18,17 @@ export interface Transform {
 	cframe: CFrame;
 	_doNotReconcile?: true;
 }
+
+/**
+ * The Health component.
+ *
+ * Holds health information including health reduction and regeneration.
+ */
+export interface Health {
+	health: number;
+	maxHealth: number;
+	regeneration: number;
+	armor: number;
+	block: number;
+	evasion: number;
+}
