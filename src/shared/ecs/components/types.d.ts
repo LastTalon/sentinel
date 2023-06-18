@@ -34,6 +34,15 @@ export interface Health {
 }
 
 /**
+ * The Damage component.
+ *
+ * Holds health-reduction information.
+ */
+export interface Damage {
+	damage: number;
+}
+
+/**
  * The Movement component.
  *
  * Contains information about where a character intends to move.
