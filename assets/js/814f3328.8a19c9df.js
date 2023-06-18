@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Broadcast Intercepted: Development Live Streams","permalink":"/sentinel/blog/broadcast-intercepted"}]}')}}]);
