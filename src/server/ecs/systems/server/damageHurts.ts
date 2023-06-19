@@ -1,7 +1,7 @@
 import { World } from "@rbxts/matter";
 import { Damage, Health } from "shared/ecs/components";
 
-export function damageHurts(world: World): void {
+function damageHurts(world: World): void {
 	for (const [id, health, damage] of world.query(Health, Damage)) {
 		world.insert(
 			id,
@@ -12,3 +12,5 @@ export function damageHurts(world: World): void {
 		world.remove(id, Damage);
 	}
 }
+
+export = damageHurts;
