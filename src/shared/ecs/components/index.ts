@@ -1,6 +1,7 @@
 import { Component, component } from "@rbxts/matter";
 import { gamePlacement, movement, transform } from "./defaults";
 import type {
+	Damage as DamageComponent,
 	GamePlacement as GamePlacementComponent,
 	Health as HealthComponent,
 	Model as ModelComponent,
@@ -12,6 +13,7 @@ export type SentinelComponentType =
 	| ModelComponent
 	| TransformComponent
 	| HealthComponent
+	| DamageComponent
 	| GamePlacementComponent
 	| MovementComponent;
 export type SentinelComponent = Component<SentinelComponentType>;
@@ -30,6 +32,11 @@ export const Transform = component<TransformComponent>("Transform", transform);
  * The {@link HealthComponent | Health} component constructor.
  */
 export const Health = component<HealthComponent>("Health");
+
+/**
+ * The {@link DamageComponent | Damage} component constructor.
+ */
+export const Damage = component<DamageComponent>("Damage");
 
 /**
  * The {@link MovementComponent | Movement} component constructor.

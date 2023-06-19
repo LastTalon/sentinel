@@ -10,6 +10,13 @@ The format is based on [Keep a Changelog][kac], and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- A Health component
+- A Damage component
+- The `damageHurts` system
+- The `healthKills` system
+
 ## [0.1.0] - 2023-02-21
 
 ### Added
