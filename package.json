@@ -9,7 +9,7 @@
 		"watch": "rbxtsc -w --rojo build.project.json",
 		"watch:test": "rbxtsc -w --type game --rojo build.project.json",
 		"rojo": "npm run build:test && concurrently --kill-others npm:watch:test npm:rojo:serve",
-		"rojo:serve": "rojo serve test.project.json",
+		"rojo:serve": "rojo serve test.project.json --address 0.0.0.0",
 		"rojo:build": "rojo build --output build.rbxl test.project.json",
 		"rojo:publish": "rojo build --output build.rbxl default.project.json",
 		"test": "npm run test:build && npm run test:run",
