@@ -1,5 +1,6 @@
 import { World } from "@rbxts/matter";
 import { GamePlacement, Transform } from "shared/ecs/components";
+import displaceHeight from "./displaceHeight";
 import movementUpdatesPlacement from "./movementUpdatesPlacement";
 
 const DEFAULT_HEIGHT = 0;
@@ -28,5 +29,5 @@ function placementUpdatesTransforms(world: World): void {
 
 export = {
 	system: placementUpdatesTransforms,
-	after: [movementUpdatesPlacement],
+	after: [movementUpdatesPlacement, displaceHeight],
 };
