@@ -4,8 +4,6 @@ import { Health, Model } from "shared/ecs/components";
 import healthKills from "./healthKills";
 
 export = (): void => {
-	FOCUS();
-
 	describe("system", () => {
 		const event = new Instance("BindableEvent");
 		let model: Model;
