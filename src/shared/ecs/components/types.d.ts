@@ -67,4 +67,14 @@ export interface Movement {
 export interface GamePlacement {
 	position: Vector2;
 	orientation: number;
+	respectsGeometry: boolean;
+	offsetHeight: number;
+}
+
+export interface HipHeight {
+	height: number;
+}
+
+export interface TravelHeight {
+	height: number;
 }

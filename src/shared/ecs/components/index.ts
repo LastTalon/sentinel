@@ -4,9 +4,11 @@ import type {
 	Damage as DamageComponent,
 	GamePlacement as GamePlacementComponent,
 	Health as HealthComponent,
+	HipHeight as HipHeightComponent,
 	Model as ModelComponent,
 	Movement as MovementComponent,
 	Transform as TransformComponent,
+	TravelHeight as TravelHeightComponent,
 } from "./types";
 
 export type SentinelComponentType =
@@ -15,7 +17,9 @@ export type SentinelComponentType =
 	| HealthComponent
 	| DamageComponent
 	| GamePlacementComponent
-	| MovementComponent;
+	| MovementComponent
+	| HipHeightComponent
+	| TravelHeightComponent;
 export type SentinelComponent = Component<SentinelComponentType>;
 
 /**
@@ -47,6 +51,10 @@ export const Movement = component<MovementComponent>("Movement", movement);
  * The {@link GamePlacementComponent | GamePlacement} component constructor.
  */
 export const GamePlacement = component<GamePlacementComponent>("GamePlacement", gamePlacement);
+
+export const HipHeight = component<HipHeightComponent>("HipHeight");
+
+export const TravelHeight = component<TravelHeightComponent>("TravelHeight");
 
 /**
  * This is a test component constructor.

@@ -29,4 +29,6 @@ export const movement: Movement = {
 export const gamePlacement: GamePlacement = {
 	position: Vector2.zero,
 	orientation: 0,
+	respectsGeometry: false,
+	offsetHeight: 0,
 };
