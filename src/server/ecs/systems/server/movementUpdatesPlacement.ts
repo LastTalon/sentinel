@@ -2,20 +2,31 @@ import { World } from "@rbxts/matter";
 import { GamePlacement, Movement } from "shared/ecs/components";
 
 function movementUpdatesPlacement(world: World): void {
-	for (const [id, movement] of world.query(Movement)) {
-		const currentSpeed = movement.velocity.Magnitude;
-		const adjustedSpeed = math.min(currentSpeed, movement.maxSpeed);
+	for (const [id, record] of world.queryChanged(Movement)) {
+		if (!record.new) continue;
+
+		const currentSpeed = record.new.velocity.Magnitude;
+		const adjustedSpeed = math.min(currentSpeed, record.new.maxSpeed);
 		const speedReductionRatio = adjustedSpeed / currentSpeed;
+
+		const expectedVelocity = record.new.velocity.mul(speedReductionRatio);
+		const expectedAngularVelocity = math.clamp(
+			record.new.angularVelocity,
+			-record.new.maxAngularSpeed,
+			record.new.maxAngularSpeed,
+		);
+
+		if (
+			expectedVelocity === record.new.velocity &&
+			expectedAngularVelocity === record.new.angularVelocity
+		)
+			continue;
 
 		world.insert(
 			id,
-			movement.patch({
-				velocity: movement.velocity.mul(speedReductionRatio),
-				angularVelocity: math.clamp(
-					movement.angularVelocity,
-					-movement.maxAngularSpeed,
-					movement.maxAngularSpeed,
-				),
+			record.new.patch({
+				velocity: expectedVelocity,
+				angularVelocity: expectedAngularVelocity,
 			}),
 		);
 	}
