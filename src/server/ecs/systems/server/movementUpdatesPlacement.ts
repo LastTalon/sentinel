@@ -6,10 +6,16 @@ function movementUpdatesPlacement(world: World): void {
 		if (!record.new) continue;
 
 		const currentSpeed = record.new.velocity.Magnitude;
-		const adjustedSpeed = math.min(currentSpeed, record.new.maxSpeed);
-		const speedReductionRatio = adjustedSpeed / currentSpeed;
+		let expectedVelocity;
+		if (currentSpeed === 0) {
+			expectedVelocity = Vector2.zero;
+		} else {
+			const adjustedSpeed = math.min(currentSpeed, record.new.maxSpeed);
+			const speedReductionRatio = adjustedSpeed / currentSpeed;
 
-		const expectedVelocity = record.new.velocity.mul(speedReductionRatio);
+			expectedVelocity = record.new.velocity.mul(speedReductionRatio);
+		}
+
 		const expectedAngularVelocity = math.clamp(
 			record.new.angularVelocity,
 			-record.new.maxAngularSpeed,
