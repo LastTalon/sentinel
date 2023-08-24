@@ -39,9 +39,6 @@
 		"@rbxts/matter-hooks": "^0.1.1",
 		"@rbxts/plasma": "^0.4.1-ts.0",
 		"@rbxts/rewire": "^0.3.0",
-		"@rbxts/roact": "^1.4.4-ts.0",
-		"@rbxts/roact-rodux": "^0.2.2-ts.8",
-		"@rbxts/rodux": "^3.0.0-ts.3",
 		"@rbxts/services": "^1.5.1"
 	},
 	"devDependencies": {
